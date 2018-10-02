@@ -39,15 +39,6 @@ public class Calculator {
 	 * This method is not an actual action of this object but just for starting our program.
 	 * 'public' means this method can be called via this object in anywhere.
 	 */
-	public static void main(String[] args) {
-
-		// Based on our class definition, we can create a real object!
-		// classname objectname = new classname();
-		Calculator myCalulator = new Calculator();
-
-		// now we can do some action (method) in our object!
-		myCalulator.execute(args[0], args[1]);
-	}
 
 	/**
 	 * @param firstArg
@@ -68,7 +59,7 @@ public class Calculator {
 		print("SUM:" , sum(firstIntArg, secondIntArg));
 		print("SUB:" , this.subtract(firstIntArg, secondIntArg));
 		print("*:" , multiply(firstIntArg, secondIntArg));
-		print("DV:" , divide(firstIntArg,secondIntArg));
+		print("DV:" , divide(firstIntArg, secondIntArg));
 	}
 
 	
@@ -80,7 +71,7 @@ public class Calculator {
 	void print(String prefix, int result) {
 		System.out.println(prefix + " " + result);
 	}
-	void print(String prefix, float result) {
+	void print(String prefix, double result) {
 		System.out.println(prefix + " " + result);
 	}
 	int sum(int first, int second) {
@@ -101,15 +92,17 @@ public class Calculator {
 		return first * second;
 	}
 
-	float divide(int first, int second) {
+	double divide(int first, int second) {
 		if(second == 0) {
 			countForAnyCompution++;
 			localCount++;
-			System.out.println("Formular Error : Can not divide by 0.");
+			return 0.0;
 		}
-		countForAnyCompution++;
-		localCount++;
-		return first / second;
+		else{
+			countForAnyCompution++;
+			localCount++;
+			return (double)second / first;
+		}
 	}
 
 	int mod(int first, int second) {
@@ -125,4 +118,14 @@ public class Calculator {
 	int getLocalCount() {
 		return localCount;
 	}
+
+public static void main(String[] args) {
+
+	// Based on our class definition, we can create a real object!
+	// classname objectname = new classname();
+	Calculator myCalulator = new Calculator();
+
+	// now we can do some action (method) in our object!
+	myCalulator.execute(args[0], args[1]);
+ }
 }
