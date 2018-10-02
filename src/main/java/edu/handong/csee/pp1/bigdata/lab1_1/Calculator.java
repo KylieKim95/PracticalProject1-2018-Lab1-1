@@ -99,7 +99,7 @@ public class Calculator {
 		return first * second;
 	}
 
-	int divide(int first, int second) {
+	float divide(int first, int second) {
 		countForAnyCompution++;
 		localCount++;
 		return first / second;
