@@ -102,6 +102,11 @@ public class Calculator {
 	}
 
 	float divide(int first, int second) {
+		if(second == 0) {
+			countForAnyCompution++;
+			localCount++;
+			System.out.println("Formular Error : Can not divide by 0.");
+		}
 		countForAnyCompution++;
 		localCount++;
 		return first / second;
