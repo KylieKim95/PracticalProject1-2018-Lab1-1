@@ -80,7 +80,9 @@ public class Calculator {
 	void print(String prefix, int result) {
 		System.out.println(prefix + " " + result);
 	}
-
+	void print(String prefix, float result) {
+		System.out.println(prefix + " " + result);
+	}
 	int sum(int first, int second) {
 		countForAnyCompution++;
 		localCount++;
